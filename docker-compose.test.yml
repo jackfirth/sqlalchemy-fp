@@ -1,0 +1,14 @@
+sut:
+  build: .
+  dockerfile: test.Dockerfile
+  environment:
+    DB_USER: test-user
+    DB_PASSWORD: test-password
+  links:
+    - db
+
+db:
+  build: ./test-db
+  environment:
+    POSTGRES_USER: test-user
+    POSTGRES_PASSWORD: test-password
